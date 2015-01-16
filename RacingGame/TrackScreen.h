@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "stdafx.h"
 #include "generator.h"
+#include "car.h"
 
 class TrackScreen: public Screen {
     
@@ -20,6 +21,8 @@ public:
     
 private:
     void drawTrack(vector<pair<int,int>> track, RenderWindow & window);
+    void drawCar(Car& c, sf::RenderWindow &window);
+    void expand(pair<int,int> &loc);
     
     Generator *_gen;
     double scalex, scaley;

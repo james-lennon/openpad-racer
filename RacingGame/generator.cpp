@@ -100,8 +100,8 @@ void Generator::generate(){
     track_list.clear();
     waypoints.clear();
     generate_waypoints();
-    print();
-    printf("\n");
+//    print();
+//    printf("\n");
     for(int i=0; i<waypoints.size(); i++){
         draw_path(i, (i+1)%waypoints.size());
     }
