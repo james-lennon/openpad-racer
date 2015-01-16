@@ -31,6 +31,7 @@ public:
 private:
     int min_dist(pair<int, int> pt);
     void generate_waypoints();
+    pair<int,int> interpolate(double t, int w1);
     float draw(int x1, float y1, int x2, float m);
     void draw_path(int w1, int w2);
     void add_block(int x, int y);

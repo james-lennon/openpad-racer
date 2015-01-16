@@ -22,6 +22,9 @@ private:
     void drawTrack(vector<pair<int,int>> track, RenderWindow & window);
     
     Generator *_gen;
+    double scalex, scaley;
+    int mapx, mapy;
+    int margin;
 };
 
 #endif /* defined(__RacingGame__TrackScreen__) */

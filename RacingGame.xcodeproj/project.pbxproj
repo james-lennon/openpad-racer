@@ -10,7 +10,7 @@
 		9D19CE861A6830A200076019 /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE821A6830A200076019 /* Game.cpp */; };
 		9D19CE871A6830A200076019 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE841A6830A200076019 /* GameObject.cpp */; };
 		9D19CE8C1A6831A900076019 /* TrackScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE8A1A6831A900076019 /* TrackScreen.cpp */; };
-		9D19CE901A68340200076019 /* generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE8E1A68340200076019 /* generator.cpp */; };
+		9D19CE931A698A4100076019 /* generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE911A698A4100076019 /* generator.cpp */; };
 		9D7C590E1A682525004C9870 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9D7C590D1A682525004C9870 /* ResourcePath.mm */; };
 		9D7C59111A682525004C9870 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D7C59101A682525004C9870 /* main.cpp */; };
 		9D7C59141A682525004C9870 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9D7C59131A682525004C9870 /* cute_image.jpg */; };
@@ -27,8 +27,8 @@
 		9D19CE881A6830D900076019 /* stdafx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stdafx.h; sourceTree = "<group>"; };
 		9D19CE8A1A6831A900076019 /* TrackScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TrackScreen.cpp; sourceTree = "<group>"; };
 		9D19CE8B1A6831A900076019 /* TrackScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackScreen.h; sourceTree = "<group>"; };
-		9D19CE8E1A68340200076019 /* generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
-		9D19CE8F1A68340200076019 /* generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generator.h; sourceTree = "<group>"; };
+		9D19CE911A698A4100076019 /* generator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = generator.cpp; sourceTree = "<group>"; };
+		9D19CE921A698A4100076019 /* generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generator.h; sourceTree = "<group>"; };
 		9D7C59081A682525004C9870 /* RacingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RacingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D7C590C1A682525004C9870 /* RacingGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RacingGame-Info.plist"; sourceTree = "<group>"; };
 		9D7C590D1A682525004C9870 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 		9D19CE8D1A6833EC00076019 /* generator */ = {
 			isa = PBXGroup;
 			children = (
-				9D19CE8E1A68340200076019 /* generator.cpp */,
-				9D19CE8F1A68340200076019 /* generator.h */,
+				9D19CE911A698A4100076019 /* generator.cpp */,
+				9D19CE921A698A4100076019 /* generator.h */,
 			);
 			name = generator;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 				9D19CE861A6830A200076019 /* Game.cpp in Sources */,
 				9D7C59111A682525004C9870 /* main.cpp in Sources */,
 				9D7C590E1A682525004C9870 /* ResourcePath.mm in Sources */,
-				9D19CE901A68340200076019 /* generator.cpp in Sources */,
+				9D19CE931A698A4100076019 /* generator.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
