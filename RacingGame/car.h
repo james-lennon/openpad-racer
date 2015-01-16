@@ -24,6 +24,7 @@ public:
     void setPos(float pos);
     float getSpeed();
     void setSpeed(float speed);
+    sf::Color col;
     
 private:
     float pos, speed;

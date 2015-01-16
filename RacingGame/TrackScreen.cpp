@@ -8,14 +8,20 @@
 
 #include "TrackScreen.h"
 
-void TrackScreen::drawTrack(vector<pair<int, int> > track, sf::RenderWindow &window){
-    float thickness = 5;
+int TrackScreen::track_length = 0;
+
+void TrackScreen::drawTrack(vector<pair<int, int> > &track, Color c, float offset, sf::RenderWindow &window){
+    int thickness = 2;
     for(int i=0; i<track.size(); i++){
+//        if(i%2)continue;
         Vertex lis[] =
         {
-            Vector2f(margin+track[i].first*scalex, margin+track[i].second*scaley),
-            Vector2f(margin+track[(i+1)%track.size()].first*scalex, margin+track[(i+1)%track.size()].second*scaley)
+            Vector2f(margin+track[i].first*scalex+offset, margin+track[i].second*scaley),
+            Vector2f(margin+track[(i+thickness)%track.size()].first*scalex + offset, margin+track[(i+thickness)%track.size()].second*scaley)
         };
+//        lis[0].color = Color::Red;
+//        lis[1].color = Color::Blue;
+        lis[0].color = lis[1].color = c;
         window.draw(lis, 2, PrimitiveType::LinesStrip);
         
 //        CircleShape dot;
@@ -33,13 +39,14 @@ void TrackScreen::expand(pair<int, int> &loc){
     loc.second = margin+loc.second*scaley;
 }
 
-void TrackScreen::drawCar(Car &c, sf::RenderWindow &window){
+void TrackScreen::drawCar(Car &c, float offset, sf::RenderWindow &window){
     CircleShape dot;
-    dot.setFillColor(Color::Red);
+    dot.setFillColor(c.col);
+    drawTrack(_gen->track_list, c.col, offset, window);
     dot.setRadius(10);
     pair<int, int> loc = _gen->track_list[c.getPos()];
     expand(loc);
-    dot.setPosition(loc.first, loc.second);
+    dot.setPosition(loc.first - dot.getLocalBounds().width/2, loc.second-dot.getLocalBounds().height/2);
     
     window.draw(dot);
 }
@@ -53,11 +60,16 @@ void TrackScreen::show(sf::RenderWindow &window){
     
     _gen = new Generator(mapx,mapy,6);
     _gen->generate();
+    track_length = _gen->track_list.size();
     
-    Car c;
+    Car c, c2;
+    c.col = Color::Red;
+    c2.col = Color::Blue;
+    c2.setSpeed(10);
     c.setSpeed(20.0);
     CarManager man;
     man.addCar(c);
+    man.addCar(c2);
     
     Clock clock;
     
@@ -69,6 +81,7 @@ void TrackScreen::show(sf::RenderWindow &window){
             }else if(evt.type == Event::KeyPressed){
                 if(evt.key.code == Keyboard::Space){
                     _gen->generate();
+                    track_length = _gen->track_list.size();
                 }
             }
         }
@@ -76,8 +89,9 @@ void TrackScreen::show(sf::RenderWindow &window){
         window.clear(Color::Black);
         float dt = clock.restart().asSeconds();
         man.update(dt);
-        drawTrack(_gen->track_list, window);
-        drawCar(man.getCar(0), window);
+//        drawTrack(_gen->track_list, window);
+        for(int i=0; i<man.size(); i++)
+            drawCar(man.getCar(i), i*15, window);
         window.display();
     }
 }

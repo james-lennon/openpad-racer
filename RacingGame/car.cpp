@@ -7,13 +7,18 @@
 //
 
 #include "car.h"
+#include "TrackScreen.h"
 
 Car::Car(){
     
 }
 
 void Car::update(float dt){
-    pos += speed * dt;
+    float realspeed = speed / 100 * TrackScreen::track_length;
+    pos += realspeed * dt;
+    if(pos >= TrackScreen::track_length){
+        pos -= TrackScreen::track_length;
+    }
 }
 
 float Car::getPos(){
