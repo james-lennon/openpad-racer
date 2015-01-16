@@ -14,14 +14,18 @@
 // method resourcePath() from ResourcePath.hpp
 //
 
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-
 // Here is a small helper for you ! Have a look.
-#include "ResourcePath.hpp"
+#include "stdafx.h"
+#include "TrackScreen.h"
 
 int main(int, char const**)
 {
+    Game::addScreen("track", new TrackScreen);
+    
+    Game::showScreen("track");
+    Game::start(sf::VideoMode(800,600), "Openpad Racer", "");
+    
+    return 0;
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
 
