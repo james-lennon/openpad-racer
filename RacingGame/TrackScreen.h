@@ -18,12 +18,8 @@ class TrackScreen: public Screen {
     
 public:
     virtual void show(RenderWindow & window);
-    static int track_length;
     
 private:
-    void drawTrack(vector<pair<int,int>> &track, Color c, float offset, RenderWindow & window);
-    void drawCar(Car& c, float offset, sf::RenderWindow &window);
-    void expand(pair<int,int> &loc);
     
     Generator* _gen;
     double scalex, scaley;

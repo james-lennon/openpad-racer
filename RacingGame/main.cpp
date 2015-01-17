@@ -43,6 +43,7 @@ int main(int, char const**)
     Game::start(sf::VideoMode(800,600), "Openpad Racer", "");
     
     serv->stop();
+    t.terminate();
     int b = 5;
     return 0;
 }

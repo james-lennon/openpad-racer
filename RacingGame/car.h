@@ -15,7 +15,7 @@
 
 using namespace std;
 
-class Car {
+class Car: public GameObject {
     
 public:
     Car();
@@ -24,19 +24,29 @@ public:
     void setPos(float pos);
     float getSpeed();
     void setSpeed(float speed);
-    sf::Color col;
+    virtual void draw(RenderWindow& window);
+    void drawTrack(RenderWindow& window);
+    void setTrack(vector<pair<int,int> >& track);
+    vector<pair<int,int> >& getTrack();
     
+    sf::Color col;
+    int offset;
+    float scalex, scaley, margin;
 private:
+    void expand(pair<int,int> &loc);
     float pos, speed;
+    vector<pair<int,int> >* track;
+    CircleShape dot;
 };
 
 class CarManager{
     
 public:
     CarManager();
-    void setTrack();
+    void setValues(vector<pair<int,int> >& track, float scalex, float scaley, float margin);
     void addCar(Car &c);
     void update(float dt);
+    void draw(RenderWindow& window);
     Car& getCar(int index);
     int size();
     void clear();
