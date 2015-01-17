@@ -52,13 +52,15 @@ Generator::Generator(int w, int h, int d){
 
 int Generator::min_dist(pair<int, int> pt){
     int min = -1;
+    int tot = 0;
     for(int i=0; i<waypoints.size(); i++){
         int d = abs(waypoints[i].first - pt.first) + abs(waypoints[i].second - pt.second);
+        tot += d;
         if(min==-1 || d<min){
             min = d;
         }
     }
-    return min;
+    return tot;
 }
 
 void Generator::print(){
@@ -110,7 +112,7 @@ void Generator::generate(){
 
 void Generator::generate_waypoints(){
     int num_waypoints = difficulty;
-    waypoints.push_back(make_pair(0, height/2));
+    waypoints.push_back(make_pair(width/8, height/2));
     for(int i=1; i<num_waypoints; i++){
         pair<int, int> maxp;
         int max = -1;

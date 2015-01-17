@@ -17,79 +17,32 @@
 // Here is a small helper for you ! Have a look.
 #include "stdafx.h"
 #include "TrackScreen.h"
+#include "openpad.h"
+#include <iostream>
+
+using namespace std;
+
+openpad::Server* serv;
+
+void runServer(){
+    openpad::ServerHandler handler;
+    serv = new openpad::Server(handler);
+    cout << "starting" << endl;
+    serv->start();
+    cout << "stopping" << endl;
+}
 
 int main(int, char const**)
 {
     Game::addScreen("track", new TrackScreen);
-    
     Game::showScreen("track");
+    
+    Thread t(runServer);
+    t.launch();
+    
     Game::start(sf::VideoMode(800,600), "Openpad Racer", "");
     
+    serv->stop();
+    int b = 5;
     return 0;
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
-
-    // Set the Icon
-    sf::Image icon;
-    if (!icon.loadFromFile(resourcePath() + "icon.png")) {
-        return EXIT_FAILURE;
-    }
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
-
-    // Load a sprite to display
-    sf::Texture texture;
-    if (!texture.loadFromFile(resourcePath() + "cute_image.jpg")) {
-        return EXIT_FAILURE;
-    }
-    sf::Sprite sprite(texture);
-
-    // Create a graphical text to display
-    sf::Font font;
-    if (!font.loadFromFile(resourcePath() + "sansation.ttf")) {
-        return EXIT_FAILURE;
-    }
-    sf::Text text("Hello SFML", font, 50);
-    text.setColor(sf::Color::Black);
-
-    // Load a music to play
-    sf::Music music;
-    if (!music.openFromFile(resourcePath() + "nice_music.ogg")) {
-        return EXIT_FAILURE;
-    }
-
-    // Play the music
-    music.play();
-
-    // Start the game loop
-    while (window.isOpen())
-    {
-        // Process events
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            // Close window : exit
-            if (event.type == sf::Event::Closed) {
-                window.close();
-            }
-
-            // Escape pressed : exit
-            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                window.close();
-            }
-        }
-
-        // Clear screen
-        window.clear();
-
-        // Draw the sprite
-        window.draw(sprite);
-
-        // Draw the string
-        window.draw(text);
-
-        // Update the window
-        window.display();
-    }
-
-    return EXIT_SUCCESS;
 }

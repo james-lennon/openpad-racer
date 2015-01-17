@@ -18,6 +18,7 @@
 		9D7C59161A682525004C9870 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 9D7C59151A682525004C9870 /* nice_music.ogg */; };
 		9D7C59181A682525004C9870 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7C59171A682525004C9870 /* sansation.ttf */; };
 		9D7C591A1A682525004C9870 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D7C59191A682525004C9870 /* icon.png */; };
+		9D8E2C521A6B00AF0026D458 /* libopenpad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8E2C511A6B00AF0026D458 /* libopenpad.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +33,8 @@
 		9D19CE921A698A4100076019 /* generator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = generator.h; sourceTree = "<group>"; };
 		9D19CE951A6994E600076019 /* car.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = car.cpp; sourceTree = "<group>"; };
 		9D19CE961A6994E600076019 /* car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = car.h; sourceTree = "<group>"; };
-		9D7C59081A682525004C9870 /* RacingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RacingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D7C590C1A682525004C9870 /* RacingGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RacingGame-Info.plist"; sourceTree = "<group>"; };
+		9D7C59081A682525004C9870 /* OpenpadRacer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenpadRacer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D7C590C1A682525004C9870 /* OpenpadRacer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OpenpadRacer-Info.plist"; sourceTree = "<group>"; };
 		9D7C590D1A682525004C9870 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		9D7C590F1A682525004C9870 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		9D7C59101A682525004C9870 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -41,6 +42,23 @@
 		9D7C59151A682525004C9870 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
 		9D7C59171A682525004C9870 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		9D7C59191A682525004C9870 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		9D8E2C391A6AF9880026D458 /* assertions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = assertions.h; sourceTree = "<group>"; };
+		9D8E2C3A1A6AF9880026D458 /* autolink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = autolink.h; sourceTree = "<group>"; };
+		9D8E2C3B1A6AF9880026D458 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
+		9D8E2C3C1A6AF9880026D458 /* features.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = features.h; sourceTree = "<group>"; };
+		9D8E2C3D1A6AF9880026D458 /* forwards.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = forwards.h; sourceTree = "<group>"; };
+		9D8E2C3E1A6AF9880026D458 /* json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
+		9D8E2C3F1A6AF9880026D458 /* openpad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = openpad.h; sourceTree = "<group>"; };
+		9D8E2C401A6AF9880026D458 /* PracticalSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PracticalSocket.h; sourceTree = "<group>"; };
+		9D8E2C411A6AF9880026D458 /* reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reader.h; sourceTree = "<group>"; };
+		9D8E2C421A6AF9880026D458 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		9D8E2C431A6AF9880026D458 /* Server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		9D8E2C441A6AF9880026D458 /* ServerHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerHandler.h; sourceTree = "<group>"; };
+		9D8E2C451A6AF9880026D458 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		9D8E2C461A6AF9880026D458 /* value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = value.h; sourceTree = "<group>"; };
+		9D8E2C471A6AF9880026D458 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		9D8E2C481A6AF9880026D458 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
+		9D8E2C511A6B00AF0026D458 /* libopenpad.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenpad.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D8E2C521A6B00AF0026D458 /* libopenpad.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +122,7 @@
 		9D7C59091A682525004C9870 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9D7C59081A682525004C9870 /* RacingGame.app */,
+				9D7C59081A682525004C9870 /* OpenpadRacer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,6 +130,7 @@
 		9D7C590A1A682525004C9870 /* RacingGame */ = {
 			isa = PBXGroup;
 			children = (
+				9D8E2C351A6AF9760026D458 /* openpad */,
 				9D19CE941A6994D900076019 /* car */,
 				9D19CE8D1A6833EC00076019 /* generator */,
 				9D19CE891A68319600076019 /* screens */,
@@ -128,7 +148,7 @@
 			children = (
 				9D7C590D1A682525004C9870 /* ResourcePath.mm */,
 				9D7C590F1A682525004C9870 /* ResourcePath.hpp */,
-				9D7C590C1A682525004C9870 /* RacingGame-Info.plist */,
+				9D7C590C1A682525004C9870 /* OpenpadRacer-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -144,12 +164,44 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		9D8E2C351A6AF9760026D458 /* openpad */ = {
+			isa = PBXGroup;
+			children = (
+				9D8E2C511A6B00AF0026D458 /* libopenpad.a */,
+				9D8E2C381A6AF9880026D458 /* include */,
+			);
+			name = openpad;
+			sourceTree = "<group>";
+		};
+		9D8E2C381A6AF9880026D458 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				9D8E2C391A6AF9880026D458 /* assertions.h */,
+				9D8E2C3A1A6AF9880026D458 /* autolink.h */,
+				9D8E2C3B1A6AF9880026D458 /* config.h */,
+				9D8E2C3C1A6AF9880026D458 /* features.h */,
+				9D8E2C3D1A6AF9880026D458 /* forwards.h */,
+				9D8E2C3E1A6AF9880026D458 /* json.h */,
+				9D8E2C3F1A6AF9880026D458 /* openpad.h */,
+				9D8E2C401A6AF9880026D458 /* PracticalSocket.h */,
+				9D8E2C411A6AF9880026D458 /* reader.h */,
+				9D8E2C421A6AF9880026D458 /* Request.h */,
+				9D8E2C431A6AF9880026D458 /* Server.h */,
+				9D8E2C441A6AF9880026D458 /* ServerHandler.h */,
+				9D8E2C451A6AF9880026D458 /* Util.h */,
+				9D8E2C461A6AF9880026D458 /* value.h */,
+				9D8E2C471A6AF9880026D458 /* version.h */,
+				9D8E2C481A6AF9880026D458 /* writer.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9D7C59071A682525004C9870 /* RacingGame */ = {
+		9D7C59071A682525004C9870 /* OpenpadRacer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9D7C591D1A682525004C9870 /* Build configuration list for PBXNativeTarget "RacingGame" */;
+			buildConfigurationList = 9D7C591D1A682525004C9870 /* Build configuration list for PBXNativeTarget "OpenpadRacer" */;
 			buildPhases = (
 				9D7C59031A682525004C9870 /* Sources */,
 				9D7C59041A682525004C9870 /* Frameworks */,
@@ -160,9 +212,9 @@
 			);
 			dependencies = (
 			);
-			name = RacingGame;
+			name = OpenpadRacer;
 			productName = RacingGame;
-			productReference = 9D7C59081A682525004C9870 /* RacingGame.app */;
+			productReference = 9D7C59081A682525004C9870 /* OpenpadRacer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +231,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9D7C59021A682525004C9870 /* Build configuration list for PBXProject "RacingGame" */;
+			buildConfigurationList = 9D7C59021A682525004C9870 /* Build configuration list for PBXProject "OpenpadRacer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -191,7 +243,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9D7C59071A682525004C9870 /* RacingGame */,
+				9D7C59071A682525004C9870 /* OpenpadRacer */,
 			);
 		};
 /* End PBXProject section */
@@ -351,23 +403,33 @@
 		9D7C591E1A682525004C9870 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "RacingGame/RacingGame-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				ARCHS = "$(ARCHS_STANDARD)";
+				INFOPLIST_FILE = "RacingGame/OpenpadRacer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RacingGame",
+				);
+				PRODUCT_NAME = OpenpadRacer;
 			};
 			name = Debug;
 		};
 		9D7C591F1A682525004C9870 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = "RacingGame/RacingGame-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				ARCHS = "$(ARCHS_STANDARD)";
+				INFOPLIST_FILE = "RacingGame/OpenpadRacer-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RacingGame",
+				);
+				PRODUCT_NAME = OpenpadRacer;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D7C59021A682525004C9870 /* Build configuration list for PBXProject "RacingGame" */ = {
+		9D7C59021A682525004C9870 /* Build configuration list for PBXProject "OpenpadRacer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D7C591B1A682525004C9870 /* Debug */,
@@ -376,7 +438,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9D7C591D1A682525004C9870 /* Build configuration list for PBXNativeTarget "RacingGame" */ = {
+		9D7C591D1A682525004C9870 /* Build configuration list for PBXNativeTarget "OpenpadRacer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9D7C591E1A682525004C9870 /* Debug */,

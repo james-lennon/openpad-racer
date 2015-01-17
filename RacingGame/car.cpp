@@ -10,7 +10,8 @@
 #include "TrackScreen.h"
 
 Car::Car(){
-    
+    pos = 0;
+    speed = 0;
 }
 
 void Car::update(float dt){

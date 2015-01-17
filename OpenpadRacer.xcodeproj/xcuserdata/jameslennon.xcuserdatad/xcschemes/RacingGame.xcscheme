@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9D7C59071A682525004C9870"
-               BuildableName = "RacingGame.app"
-               BlueprintName = "RacingGame"
-               ReferencedContainer = "container:RacingGame.xcodeproj">
+               BuildableName = "OpenpadRacer.app"
+               BlueprintName = "OpenpadRacer"
+               ReferencedContainer = "container:OpenpadRacer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9D7C59071A682525004C9870"
-            BuildableName = "RacingGame.app"
-            BlueprintName = "RacingGame"
-            ReferencedContainer = "container:RacingGame.xcodeproj">
+            BuildableName = "OpenpadRacer.app"
+            BlueprintName = "OpenpadRacer"
+            ReferencedContainer = "container:OpenpadRacer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9D7C59071A682525004C9870"
-            BuildableName = "RacingGame.app"
-            BlueprintName = "RacingGame"
-            ReferencedContainer = "container:RacingGame.xcodeproj">
+            BuildableName = "OpenpadRacer.app"
+            BlueprintName = "OpenpadRacer"
+            ReferencedContainer = "container:OpenpadRacer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9D7C59071A682525004C9870"
-            BuildableName = "RacingGame.app"
-            BlueprintName = "RacingGame"
-            ReferencedContainer = "container:RacingGame.xcodeproj">
+            BuildableName = "OpenpadRacer.app"
+            BlueprintName = "OpenpadRacer"
+            ReferencedContainer = "container:OpenpadRacer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -11,7 +11,7 @@
 int TrackScreen::track_length = 0;
 
 void TrackScreen::drawTrack(vector<pair<int, int> > &track, Color c, float offset, sf::RenderWindow &window){
-    int thickness = 2;
+    int thickness = 3;
     for(int i=0; i<track.size(); i++){
 //        if(i%2)continue;
         Vertex lis[] =
@@ -46,7 +46,7 @@ void TrackScreen::drawCar(Car &c, float offset, sf::RenderWindow &window){
     dot.setRadius(10);
     pair<int, int> loc = _gen->track_list[c.getPos()];
     expand(loc);
-    dot.setPosition(loc.first - dot.getLocalBounds().width/2, loc.second-dot.getLocalBounds().height/2);
+    dot.setPosition(loc.first - dot.getLocalBounds().width/2 + offset, loc.second-dot.getLocalBounds().height/2);
     
     window.draw(dot);
 }
@@ -62,14 +62,20 @@ void TrackScreen::show(sf::RenderWindow &window){
     _gen->generate();
     track_length = _gen->track_list.size();
     
-    Car c, c2;
+    Car c, c2, c3, c4;
     c.col = Color::Red;
     c2.col = Color::Blue;
+    c3.col = Color::Green;
+    c4.col = Color::Yellow;
     c2.setSpeed(10);
     c.setSpeed(20.0);
+    c3.setSpeed(15);
+    c4.setSpeed(16);
     CarManager man;
     man.addCar(c);
     man.addCar(c2);
+    man.addCar(c3);
+    man.addCar(c4);
     
     Clock clock;
     
@@ -91,7 +97,7 @@ void TrackScreen::show(sf::RenderWindow &window){
         man.update(dt);
 //        drawTrack(_gen->track_list, window);
         for(int i=0; i<man.size(); i++)
-            drawCar(man.getCar(i), i*15, window);
+            drawCar(man.getCar(i), i*25, window);
         window.display();
     }
 }
