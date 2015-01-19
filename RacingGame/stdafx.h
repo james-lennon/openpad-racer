@@ -16,5 +16,7 @@
 #include "Game.h"
 #include "GameObject.h"
 #include "ResourcePath.hpp"
+#include "constants.h"
+#include "openpad.h"
 
 #endif

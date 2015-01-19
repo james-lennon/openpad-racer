@@ -9,7 +9,6 @@
 #ifndef __RacingGame__car__
 #define __RacingGame__car__
 
-#include <stdio.h>
 #include <vector>
 #include "stdafx.h"
 
@@ -20,6 +19,7 @@ class Car: public GameObject {
 public:
     Car();
     void update(float dt);
+    float calcCentAcc(float dt);
     float getPos();
     void setPos(float pos);
     float getSpeed();
@@ -28,15 +28,24 @@ public:
     void drawTrack(RenderWindow& window);
     void setTrack(vector<pair<int,int> >& track);
     vector<pair<int,int> >& getTrack();
+    void reset();
+    void accelerate();
+    void brake();
+    void disconnect();
+    void knockOff();
     
     sf::Color col;
     int offset;
     float scalex, scaley, margin;
 private:
     void expand(pair<int,int> &loc);
-    float pos, speed;
+    float pos, speed, acceleration;
     vector<pair<int,int> >* track;
+    Vector2f vel, prevVel;
     CircleShape dot;
+    bool offTrack;
+    Clock offTimer;
+    Vector2f offPos;
 };
 
 class CarManager{

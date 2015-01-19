@@ -17,7 +17,8 @@
 // Here is a small helper for you ! Have a look.
 #include "stdafx.h"
 #include "TrackScreen.h"
-#include "openpad.h"
+#include "VisualizerScreen.h"
+#include "RacerHandler.h"
 #include <iostream>
 
 using namespace std;
@@ -25,17 +26,16 @@ using namespace std;
 openpad::Server* serv;
 
 void runServer(){
-    openpad::ServerHandler handler;
+    RacerHandler handler;
     serv = new openpad::Server(handler);
-    cout << "starting" << endl;
     serv->start();
-    cout << "stopping" << endl;
 }
 
 int main(int, char const**)
 {
     Game::addScreen("track", new TrackScreen);
-    Game::showScreen("track");
+    Game::addScreen("visualizer", new VisualizerScreen);
+    Game::showScreen("visualizer");
     
     Thread t(runServer);
     t.launch();
@@ -44,6 +44,5 @@ int main(int, char const**)
     
     serv->stop();
     t.terminate();
-    int b = 5;
     return 0;
 }

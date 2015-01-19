@@ -7,31 +7,104 @@
 //
 
 #include "car.h"
-#include "TrackScreen.h"
+#include <cmath>
 
 Car::Car(){
     track = nullptr;
-    pos = 0;
-    speed = 0;
     margin = scalex = scaley = 0;
     offset = 0;
+    reset();
+}
+
+void Car::reset(){
+    offTrack = false;
+    pos = 0;
+    speed = 0;
+    acceleration = 0;
+}
+
+float magnitude(Vector2f &vec){
+    return sqrt(vec.x*vec.x+vec.y*vec.y);
+}
+
+float Car::calcCentAcc(float dt){
+    Vector2f acc = (vel - prevVel)/dt;
+    if (magnitude(acc)==0) {
+        return 0.f;
+    }
+    float dotproduct = acc.x*vel.x+acc.y*vel.y;
+    float magproduct = magnitude(acc)*magnitude(vel);
+    float theta = acos(dotproduct/magproduct);
+    float ac = magnitude(acc)*sin(theta);
+//    printf("theta: %f, a: %f, ac: %f\n",theta, magnitude(acc), ac);
+    return ac;
+}
+
+void Car::accelerate(){
+    acceleration = Constants::car_acc;
+}
+
+void Car::brake(){
+    acceleration = -2*Constants::car_acc;
 }
 
 void Car::update(float dt){
+    if(offTrack){
+        if(offTimer.getElapsedTime().asSeconds()<3){
+            offPos += vel * dt;
+            //            vel /= (2.0f*dt);
+            if(abs(vel.x)>0.1){
+                vel.x -= Constants::car_acc*2*dt;
+            }
+            if(abs(vel.y)>0.1){
+                vel.y -= Constants::car_acc*2*dt;
+            }
+        }else{
+            offTrack = false;
+        }
+        return;
+    }
+    if(abs(acceleration)>0){
+        speed += acceleration * dt;
+        if(speed<0)speed = 0;
+    }
+    prevVel = vel;
+    int delta = 4;
+    vel = Vector2f(getTrack()[(int)pos].first - getTrack()[(int)(pos-delta+getTrack().size())%getTrack().size()].first, getTrack()[(int)pos].second - getTrack()[(int)(pos-delta+getTrack().size())%getTrack().size()].second) * speed;
+    
     float realspeed = speed / 100 * getTrack().size();
     pos += realspeed * dt;
     if(pos >= getTrack().size()){
         pos -= getTrack().size();
     }
+    if(calcCentAcc(dt)>Constants::acc_tolerance){
+        knockOff();
+    }
+}
+
+void Car::knockOff(){
+    speed = 0;
+    prevVel = {0,0};
+    vel *= 3.0f;
+    offTrack = true;
+    offTimer.restart();
+    pair<int, int> tloc = getTrack()[(int)pos];
+    expand(tloc);
+    offPos.x = tloc.first;
+    offPos.y = tloc.second;
 }
 
 void Car::draw(sf::RenderWindow &window){
     dot.setFillColor(col);
-    drawTrack(window);
     dot.setRadius(10);
-    pair<int, int> loc = getTrack()[getPos()];
-    expand(loc);
-    dot.setPosition(loc.first - dot.getLocalBounds().width/2 + offset, loc.second-dot.getLocalBounds().height/2);
+    drawTrack(window);
+    if(offTrack){
+        dot.setPosition(offPos);
+    }else{
+        pair<int, int> loc = getTrack()[getPos()];
+        expand(loc);
+        dot.setPosition(loc.first - dot.getLocalBounds().width/2 + offset, loc.second-dot.getLocalBounds().height/2);
+    }
     
     window.draw(dot);
 }
@@ -87,6 +160,11 @@ vector<pair<int,int> >& Car::getTrack(){
 void Car::expand(pair<int, int> &loc){
     loc.first = margin+loc.first*scalex;
     loc.second = margin+loc.second*scaley;
+}
+
+void Car::disconnect(){
+    col = Color(100, 100, 100);
+    speed = 0;
 }
 
 CarManager::CarManager(){

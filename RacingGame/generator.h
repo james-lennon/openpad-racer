@@ -34,6 +34,7 @@ private:
     pair<int,int> interpolate(double t, int w1);
     float draw(int x1, float y1, int x2, float m);
     void draw_path(int w1, int w2);
+    void filter();
     void add_block(int x, int y);
     float avg_slope(pair<int, int> p1, pair<int, int> p2, pair<int, int> p3);
     
