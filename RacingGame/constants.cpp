@@ -10,3 +10,4 @@
 
 const int Constants::acc_tolerance = 1500;
 const float Constants::car_acc = 4.0;
+const float Constants::off_time = 3.0;

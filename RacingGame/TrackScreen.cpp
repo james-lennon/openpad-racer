@@ -72,10 +72,10 @@ void TrackScreen::show(sf::RenderWindow &window){
             if(evt.type == Event::Closed || (evt.type == Event::KeyPressed && evt.key.code == sf::Keyboard::Escape)){
                 Game::exit();
             }else if(evt.type == Event::KeyPressed){
-                if(evt.key.code == Keyboard::Space){
-                    _gen->generate();
-                    man.setValues(_gen->track_list, scalex, scaley, margin);
-                }
+//                if(evt.key.code == Keyboard::Space){
+//                    _gen->generate();
+//                    man.setValues(_gen->track_list, scalex, scaley, margin);
+//                }
             }
         }
         

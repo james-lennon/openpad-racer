@@ -36,7 +36,7 @@ float Car::calcCentAcc(float dt){
     float magproduct = magnitude(acc)*magnitude(vel);
     float theta = acos(dotproduct/magproduct);
     float ac = magnitude(acc)*sin(theta);
-//    printf("theta: %f, a: %f, ac: %f\n",theta, magnitude(acc), ac);
+    //    printf("theta: %f, a: %f, ac: %f\n",theta, magnitude(acc), ac);
     return ac;
 }
 
@@ -50,14 +50,18 @@ void Car::brake(){
 
 void Car::update(float dt){
     if(offTrack){
-        if(offTimer.getElapsedTime().asSeconds()<3){
+        if(offTimer.getElapsedTime().asSeconds()<Constants::off_time){
             offPos += vel * dt;
-            //            vel /= (2.0f*dt);
-            if(abs(vel.x)>0.1){
-                vel.x -= Constants::car_acc*2*dt;
+            float offacc = magnitude(vel)*Constants::car_acc*dt*.5f;
+            if(abs(vel.x)>offacc){
+                vel.x -= vel.x>0?offacc:-offacc;
+            }else{
+                vel.x = 0;
             }
-            if(abs(vel.y)>0.1){
-                vel.y -= Constants::car_acc*2*dt;
+            if(abs(vel.y)>offacc){
+                vel.y -= vel.y>0?offacc:-offacc;
+            }else{
+                vel.y=0;
             }
         }else{
             offTrack = false;
@@ -117,18 +121,18 @@ void Car::drawTrack(RenderWindow& window){
             Vector2f(margin+getTrack()[i].first*scalex+offset, margin+getTrack()[i].second*scaley),
             Vector2f(margin+getTrack()[(i+thickness)%getTrack().size()].first*scalex + offset, margin+getTrack()[(i+thickness)%getTrack().size()].second*scaley)
         };
-//                lis[0].color = Color::Red;
-//                lis[1].color = Color::Blue;
+        //                lis[0].color = Color::Red;
+        //                lis[1].color = Color::Blue;
         lis[0].color = lis[1].color = col;
         window.draw(lis, 2, PrimitiveType::LinesStrip);
         
-        //        CircleShape dot;
-        //        dot.setRadius(thickness);
-        //        dot.setFillColor(Color::White);
-        //        dot.setPosition(margin+track[i].first*scalex, margin+track[i].second*scaley);
-        //        window.draw(dot);
-        
-        //        RectangleShape line;
+        RectangleShape line;
+        line.setSize({20,5});
+        line.setFillColor(Color::White);
+        pair<int,int> start = getTrack()[0];
+        expand(start);
+        line.setPosition(start.first - line.getLocalBounds().width/2, start.second - line.getLocalBounds().height/2);
+        window.draw(line);
     }
 }
 

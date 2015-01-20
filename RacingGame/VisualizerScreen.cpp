@@ -35,6 +35,14 @@ void VisualizerScreen::show(sf::RenderWindow &window){
     _gen = new Generator(mapx,mapy,6);
     _gen->generate();
     
+    Clock time;
+    
+    Font sans;
+    sans.loadFromFile(resourcePath()+"sansation.ttf");
+    Text title("Openpad Racer", sans);
+    title.setCharacterSize(70);
+    title.setPosition(window.getSize().x/2-title.getLocalBounds().width/2, 200);
+    
     
     while(window.isOpen()){
         sf::Event evt;
@@ -42,15 +50,21 @@ void VisualizerScreen::show(sf::RenderWindow &window){
             if(evt.type == Event::Closed || (evt.type == Event::KeyPressed && evt.key.code == sf::Keyboard::Escape)){
                 Game::exit();
             }else if(evt.type == Event::KeyPressed){
-                if(evt.key.code == Keyboard::Space){
-                    _gen->difficulty = 4 + rand()%4;
-                    _gen->generate();
-                }
+//                if(evt.key.code == Keyboard::Space){
+//                    _gen->difficulty = 4 + rand()%4;
+//                    _gen->generate();
+//                }
             }
+        }
+        if(time.getElapsedTime().asSeconds()>3){
+            _gen->difficulty = 4 + rand()%4;
+            _gen->generate();
+            time.restart();
         }
         if(showTrack)return;
         window.clear(Color::Black);
         drawTrack(window);
+        window.draw(title);
         window.display();
     }
 }

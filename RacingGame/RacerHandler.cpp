@@ -24,7 +24,7 @@ string RacerHandler::getDesc(){
 }
 
 string RacerHandler::getIconFilePath(){
-    return "";
+    return resourcePath() + "icon-small.png";
 }
 
 int RacerHandler::getFilledSlots(){
