@@ -25,6 +25,9 @@ private:
     double scalex, scaley;
     int mapx, mapy;
     int margin;
+    Text players;
+    
+    void displayPlayers(RenderWindow& window);
 };
 
 #endif /* defined(__OpenpadRacer__VisualizerScreen__) */

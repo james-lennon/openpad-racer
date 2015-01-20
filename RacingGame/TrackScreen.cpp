@@ -8,7 +8,7 @@
 
 #include "TrackScreen.h"
 
-Color color_list[] = {Color::Red, Color::Yellow, Color::Green, Color::Blue};
+Color TrackScreen::color_list[] = {Color::Red, Color::Yellow, Color::Green, Color::Blue};
 map<string, Car*> TrackScreen::cars;
 
 void TrackScreen::setPlayers(vector<string> ids){

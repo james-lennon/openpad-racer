@@ -43,7 +43,8 @@ private:
     vector<pair<int,int> >* track;
     Vector2f vel, prevVel;
     CircleShape dot;
-    bool offTrack;
+    bool offTrack, disconnected;
+    int laps;
     Clock offTimer;
     Vector2f offPos;
 };

@@ -21,6 +21,8 @@ void Car::reset(){
     pos = 0;
     speed = 0;
     acceleration = 0;
+    laps = 0;
+    disconnected = false;
 }
 
 float magnitude(Vector2f &vec){
@@ -131,7 +133,7 @@ void Car::drawTrack(RenderWindow& window){
         line.setFillColor(Color::White);
         pair<int,int> start = getTrack()[0];
         expand(start);
-        line.setPosition(start.first - line.getLocalBounds().width/2, start.second - line.getLocalBounds().height/2);
+        line.setPosition(start.first - line.getLocalBounds().width/2 + offset, start.second - line.getLocalBounds().height/2);
         window.draw(line);
     }
 }
@@ -169,6 +171,7 @@ void Car::expand(pair<int, int> &loc){
 void Car::disconnect(){
     col = Color(100, 100, 100);
     speed = 0;
+    disconnected = true;
 }
 
 CarManager::CarManager(){

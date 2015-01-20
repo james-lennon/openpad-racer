@@ -18,6 +18,7 @@
 #include "stdafx.h"
 #include "TrackScreen.h"
 #include "VisualizerScreen.h"
+#include "LoadingScreen.h"
 #include "RacerHandler.h"
 #include <iostream>
 
@@ -35,6 +36,7 @@ int main(int, char const**)
 {
     Game::addScreen("track", new TrackScreen);
     Game::addScreen("visualizer", new VisualizerScreen);
+    Game::addScreen("loading", new LoadingScreen);
     Game::showScreen("visualizer");
     
     Thread t(runServer);

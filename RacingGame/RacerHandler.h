@@ -17,9 +17,9 @@ using namespace std;
 
 class RacerHandler: public ServerHandler {
     vector<string> ids;
-    map<string, string> names;
     
 public:
+    static map<string, string> names;
     virtual void onStart();
     virtual string getName();
     virtual string getDesc();

@@ -7,6 +7,7 @@
 //
 
 #include "VisualizerScreen.h"
+#include "RacerHandler.h"
 
 bool VisualizerScreen::showTrack = false;
 
@@ -23,6 +24,17 @@ void VisualizerScreen::drawTrack(RenderWindow& window){
         window.draw(lis, 2, PrimitiveType::LinesStrip);
     }
     
+}
+
+void VisualizerScreen::displayPlayers(sf::RenderWindow &window){
+    string msg = "Players:\n";
+    for(map<string,string>::iterator it = RacerHandler::names.begin(); it !=RacerHandler::names.end(); ++it){
+        msg += it->second;
+        msg += "\n";
+    }
+    players.setString(msg);
+    players.setPosition(window.getSize().x/2-players.getLocalBounds().width/2, 400);
+    window.draw(players);
 }
 
 void VisualizerScreen::show(sf::RenderWindow &window){
@@ -42,7 +54,8 @@ void VisualizerScreen::show(sf::RenderWindow &window){
     Text title("Openpad Racer", sans);
     title.setCharacterSize(70);
     title.setPosition(window.getSize().x/2-title.getLocalBounds().width/2, 200);
-    
+    players.setFont(sans);
+    players.setCharacterSize(24);
     
     while(window.isOpen()){
         sf::Event evt;
@@ -65,6 +78,7 @@ void VisualizerScreen::show(sf::RenderWindow &window){
         window.clear(Color::Black);
         drawTrack(window);
         window.draw(title);
+        displayPlayers(window);
         window.display();
     }
 }

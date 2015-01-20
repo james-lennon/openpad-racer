@@ -10,6 +10,8 @@
 #include "TrackScreen.h"
 #include "VisualizerScreen.h"
 
+map<string, string> RacerHandler::names;
+
 void RacerHandler::onStart(){
     ids.clear();
     names.clear();
@@ -46,7 +48,7 @@ void RacerHandler::onJoin(openpad::Client *cli){
 
 void RacerHandler::showTrack(){
     TrackScreen::setPlayers(ids);
-    Game::showScreen("track");
+    Game::showScreen("loading");
     VisualizerScreen::showTrack = true;
 }
 

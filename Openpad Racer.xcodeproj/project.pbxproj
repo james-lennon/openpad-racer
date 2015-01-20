@@ -12,6 +12,8 @@
 		9D19CE8C1A6831A900076019 /* TrackScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE8A1A6831A900076019 /* TrackScreen.cpp */; };
 		9D19CE971A6994E600076019 /* car.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CE951A6994E600076019 /* car.cpp */; };
 		9D334A4D1A6ED4BD00B7BE4F /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D334A4C1A6ED4BD00B7BE4F /* icon-small.png */; };
+		9D334A4F1A6EE86500B7BE4F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D334A4E1A6EE86500B7BE4F /* Images.xcassets */; };
+		9D334A521A6EEED600B7BE4F /* LoadingScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D334A501A6EEED600B7BE4F /* LoadingScreen.cpp */; };
 		9D51635D1A6B5CE900A076D8 /* MenuScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D51635B1A6B5CE900A076D8 /* MenuScreen.cpp */; };
 		9D5163601A6B5E8D00A076D8 /* VisualizerScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D51635E1A6B5E8D00A076D8 /* VisualizerScreen.cpp */; };
 		9D5163631A6C1DFC00A076D8 /* generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D5163611A6C1DFC00A076D8 /* generator.cpp */; };
@@ -34,6 +36,9 @@
 		9D19CE951A6994E600076019 /* car.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = car.cpp; sourceTree = "<group>"; };
 		9D19CE961A6994E600076019 /* car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = car.h; sourceTree = "<group>"; };
 		9D334A4C1A6ED4BD00B7BE4F /* icon-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-small.png"; sourceTree = "<group>"; };
+		9D334A4E1A6EE86500B7BE4F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "Openpad Racer/Images.xcassets"; sourceTree = "<group>"; };
+		9D334A501A6EEED600B7BE4F /* LoadingScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LoadingScreen.cpp; sourceTree = "<group>"; };
+		9D334A511A6EEED600B7BE4F /* LoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScreen.h; sourceTree = "<group>"; };
 		9D51635B1A6B5CE900A076D8 /* MenuScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MenuScreen.cpp; sourceTree = "<group>"; };
 		9D51635C1A6B5CE900A076D8 /* MenuScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScreen.h; sourceTree = "<group>"; };
 		9D51635E1A6B5E8D00A076D8 /* VisualizerScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VisualizerScreen.cpp; sourceTree = "<group>"; };
@@ -101,6 +106,8 @@
 				9D51635C1A6B5CE900A076D8 /* MenuScreen.h */,
 				9D51635E1A6B5E8D00A076D8 /* VisualizerScreen.cpp */,
 				9D51635F1A6B5E8D00A076D8 /* VisualizerScreen.h */,
+				9D334A501A6EEED600B7BE4F /* LoadingScreen.cpp */,
+				9D334A511A6EEED600B7BE4F /* LoadingScreen.h */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 		9D7C58FE1A682525004C9870 = {
 			isa = PBXGroup;
 			children = (
+				9D334A4E1A6EE86500B7BE4F /* Images.xcassets */,
 				9D7C590A1A682525004C9870 /* RacingGame */,
 				9D7C59091A682525004C9870 /* Products */,
 			);
@@ -275,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D334A4F1A6EE86500B7BE4F /* Images.xcassets in Resources */,
 				9D7C59181A682525004C9870 /* sansation.ttf in Resources */,
 				9D334A4D1A6ED4BD00B7BE4F /* icon-small.png in Resources */,
 			);
@@ -307,6 +316,7 @@
 				9D19CE8C1A6831A900076019 /* TrackScreen.cpp in Sources */,
 				9D19CE861A6830A200076019 /* Game.cpp in Sources */,
 				9D5163661A6C39F400A076D8 /* constants.cpp in Sources */,
+				9D334A521A6EEED600B7BE4F /* LoadingScreen.cpp in Sources */,
 				9D7C59111A682525004C9870 /* main.cpp in Sources */,
 				9D5163601A6B5E8D00A076D8 /* VisualizerScreen.cpp in Sources */,
 				9D51635D1A6B5CE900A076D8 /* MenuScreen.cpp in Sources */,
@@ -428,6 +438,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "RacingGame/Openpad Racer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "RacingGame/Openpad Racer-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

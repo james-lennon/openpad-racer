@@ -22,6 +22,8 @@ using namespace openpad;
 class TrackScreen: public Screen {
     
 public:
+    static Color color_list[];
+    
     virtual void show(RenderWindow & window);
     static void setPlayers(vector<string> ids);
     static void disconnectCar(string id);
