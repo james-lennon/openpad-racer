@@ -19,10 +19,7 @@ void LoadingScreen::loadPlayers(){
         p.name.setString(it->second);
         p.name.setCharacterSize(24);
         p.name.setColor(TrackScreen::color_list[i]);
-        p.name.setPosition(Game::getWindow().getSize().x/2-p.name.getLocalBounds().width/2, 300 + p.name.getLocalBounds().height*i);
-        
-        p.dot.setRadius(15);
-        p.dot.setFillColor(TrackScreen::color_list[i]);
+        p.name.setPosition(Game::getWindow().getSize().x/2-p.name.getLocalBounds().width/2, 300 + (p.name.getLocalBounds().height+20)*i);
         
         players.push_back(p);
         i++;

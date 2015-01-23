@@ -17,6 +17,7 @@ public:
     static const int acc_tolerance;
     static const float car_acc;
     static const float off_time;
+    static const int max_laps;
 };
 
 #endif /* defined(__Openpad_Racer__constants__) */

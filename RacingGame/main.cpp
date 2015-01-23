@@ -20,6 +20,7 @@
 #include "VisualizerScreen.h"
 #include "LoadingScreen.h"
 #include "RacerHandler.h"
+#include "FinishedScreen.h"
 #include <iostream>
 
 using namespace std;
@@ -37,6 +38,7 @@ int main(int, char const**)
     Game::addScreen("track", new TrackScreen);
     Game::addScreen("visualizer", new VisualizerScreen);
     Game::addScreen("loading", new LoadingScreen);
+    Game::addScreen("finished", new FinishedScreen);
     Game::showScreen("visualizer");
     
     Thread t(runServer);

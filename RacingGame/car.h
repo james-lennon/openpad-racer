@@ -37,13 +37,14 @@ public:
     sf::Color col;
     int offset;
     float scalex, scaley, margin;
+    bool offTrack, disconnected, finished;
+    string phoneid;
 private:
     void expand(pair<int,int> &loc);
     float pos, speed, acceleration;
     vector<pair<int,int> >* track;
     Vector2f vel, prevVel;
     CircleShape dot;
-    bool offTrack, disconnected;
     int laps;
     Clock offTimer;
     Vector2f offPos;
@@ -52,6 +53,8 @@ private:
 class CarManager{
     
 public:
+    static vector<string> places;
+    
     CarManager();
     void setValues(vector<pair<int,int> >& track, float scalex, float scaley, float margin);
     void addCar(Car &c);
@@ -60,6 +63,8 @@ public:
     Car& getCar(int index);
     int size();
     void clear();
+    static void onFinish(Car *c);
+    bool finished();
     
 private:
     vector<Car*> cars;

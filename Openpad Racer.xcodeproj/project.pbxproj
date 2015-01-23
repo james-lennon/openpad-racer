@@ -23,6 +23,7 @@
 		9D7C59111A682525004C9870 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9D7C59101A682525004C9870 /* main.cpp */; };
 		9D7C59181A682525004C9870 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D7C59171A682525004C9870 /* sansation.ttf */; };
 		9D8E2C521A6B00AF0026D458 /* libopenpad.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D8E2C511A6B00AF0026D458 /* libopenpad.a */; };
+		9DAE134C1A7176E3005020B1 /* FinishedScreen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9DAE134A1A7176E3005020B1 /* FinishedScreen.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		9D8E2C471A6AF9880026D458 /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
 		9D8E2C481A6AF9880026D458 /* writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = writer.h; sourceTree = "<group>"; };
 		9D8E2C511A6B00AF0026D458 /* libopenpad.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libopenpad.a; sourceTree = "<group>"; };
+		9DAE134A1A7176E3005020B1 /* FinishedScreen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FinishedScreen.cpp; sourceTree = "<group>"; };
+		9DAE134B1A7176E3005020B1 /* FinishedScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishedScreen.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				9D51635F1A6B5E8D00A076D8 /* VisualizerScreen.h */,
 				9D334A501A6EEED600B7BE4F /* LoadingScreen.cpp */,
 				9D334A511A6EEED600B7BE4F /* LoadingScreen.h */,
+				9DAE134A1A7176E3005020B1 /* FinishedScreen.cpp */,
+				9DAE134B1A7176E3005020B1 /* FinishedScreen.h */,
 			);
 			name = screens;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DAE134C1A7176E3005020B1 /* FinishedScreen.cpp in Sources */,
 				9D19CE871A6830A200076019 /* GameObject.cpp in Sources */,
 				9D19CE8C1A6831A900076019 /* TrackScreen.cpp in Sources */,
 				9D19CE861A6830A200076019 /* Game.cpp in Sources */,

@@ -7,21 +7,10 @@
 //
 
 #include "TrackScreen.h"
+#include "RacerHandler.h"
 
 Color TrackScreen::color_list[] = {Color::Red, Color::Yellow, Color::Green, Color::Blue};
 map<string, Car*> TrackScreen::cars;
-
-void TrackScreen::setPlayers(vector<string> ids){
-    for(map<string,Car*>::iterator it = cars.begin(); it!=cars.end(); ++it){
-        delete it->second;
-    }
-    cars.clear();
-    for(int i=0; i<ids.size(); i++){
-        Car* c = new Car;
-        c->col = color_list[i];
-        cars[ids[i]] = c;
-    }
-}
 
 void TrackScreen::handleInput(string id, openpad::PadUpdateObject update){
     if(update.controlid!=0)return;
@@ -33,6 +22,11 @@ void TrackScreen::handleInput(string id, openpad::PadUpdateObject update){
 }
 
 void TrackScreen::show(sf::RenderWindow &window){
+    for(map<string,Car*>::iterator it = cars.begin(); it!=cars.end(); ++it){
+        delete it->second;
+    }
+    cars.clear();
+    
     mapx = 200;
     mapy = 200;
     margin = 50;
@@ -59,8 +53,14 @@ void TrackScreen::show(sf::RenderWindow &window){
     */
     
     CarManager man;
-    for(map<string,Car*>::iterator it = cars.begin(); it!=cars.end(); ++it){
-        man.addCar(*it->second);
+    int i=0;
+    for(map<string,string>::iterator it = RacerHandler::names.begin(); it!=RacerHandler::names.end(); ++it){
+        Car* c = new Car;
+        c->col = color_list[i];
+        c->phoneid = it->first;
+        cars[it->first] = c;
+        man.addCar(*c);
+        i++;
     }
     man.setValues(_gen->track_list, scalex, scaley, margin);
     
@@ -72,11 +72,12 @@ void TrackScreen::show(sf::RenderWindow &window){
             if(evt.type == Event::Closed || (evt.type == Event::KeyPressed && evt.key.code == sf::Keyboard::Escape)){
                 Game::exit();
             }else if(evt.type == Event::KeyPressed){
-//                if(evt.key.code == Keyboard::Space){
-//                    _gen->generate();
-//                    man.setValues(_gen->track_list, scalex, scaley, margin);
-//                }
             }
+        }
+        
+        if(man.finished()){
+            Game::showScreen("finished");
+            break;
         }
         
         window.clear(Color::Black);

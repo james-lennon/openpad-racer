@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RacingGame/main.cpp"
-            timestampString = "443481234.918787"
+            timestampString = "443644199.514747"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "main(int, char const**)"
             landmarkType = "7">
          </BreakpointContent>
@@ -48,6 +48,22 @@
             startingLineNumber = "157"
             endingLineNumber = "157"
             landmarkName = "Generator::draw_path(int w1, int w2)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RacingGame/RacerHandler.cpp"
+            timestampString = "443728943.372383"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "RacerHandler::onPadUpdate(openpad::Client *cli, openpad::PadUpdateObject update)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

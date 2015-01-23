@@ -47,13 +47,12 @@ void RacerHandler::onJoin(openpad::Client *cli){
 }
 
 void RacerHandler::showTrack(){
-    TrackScreen::setPlayers(ids);
     Game::showScreen("loading");
     VisualizerScreen::showTrack = true;
 }
 
 PadConfig RacerHandler::getDefaultControls(){
-//    return PadConfig::joystickWithButtonsLayout();
+    //    return PadConfig::joystickWithButtonsLayout();
     PadConfig conf;
     ButtonControl *b = new ButtonControl(.5,.5,.5,0, BUTTON_A);
     conf.addControl(b);
@@ -71,7 +70,9 @@ void RacerHandler::onDisconnect(openpad::Client *cli){
 void RacerHandler::onPadUpdate(openpad::Client *cli, openpad::PadUpdateObject update){
     if(Game::currentScreenName()=="track"){
         TrackScreen::handleInput(cli->getID().phoneid, update);
-    }else if(ids[0] == cli->getID().phoneid && update.action == ACTION_DOWN && update.controlid == 0){
-        showTrack();
+    }else if(Game::currentScreenName()=="visualizer"){
+        if(ids[0] == cli->getID().phoneid && update.action == ACTION_DOWN && update.controlid == 0){
+            showTrack();
+        }
     }
 }

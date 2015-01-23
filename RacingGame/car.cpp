@@ -7,7 +7,10 @@
 //
 
 #include "car.h"
+#include "RacerHandler.h"
 #include <cmath>
+
+vector<string> CarManager::places;
 
 Car::Car(){
     track = nullptr;
@@ -70,7 +73,11 @@ void Car::update(float dt){
         }
         return;
     }
+    if(finished){
+        acceleration = -2*Constants::car_acc;
+    }
     if(abs(acceleration)>0){
+//        printf("moving\n");
         speed += acceleration * dt;
         if(speed<0)speed = 0;
     }
@@ -82,6 +89,11 @@ void Car::update(float dt){
     pos += realspeed * dt;
     if(pos >= getTrack().size()){
         pos -= getTrack().size();
+        laps++;
+        if(laps>Constants::max_laps){
+            finished = true;
+            CarManager::onFinish(this);
+        }
     }
     if(calcCentAcc(dt)>Constants::acc_tolerance){
         knockOff();
@@ -102,6 +114,8 @@ void Car::knockOff(){
 
 void Car::draw(sf::RenderWindow &window){
     dot.setFillColor(col);
+    dot.setOutlineColor(Color::Black);
+    dot.setOutlineThickness(3);
     dot.setRadius(10);
     drawTrack(window);
     if(offTrack){
@@ -116,7 +130,7 @@ void Car::draw(sf::RenderWindow &window){
 }
 
 void Car::drawTrack(RenderWindow& window){
-    int thickness = 3;
+    int thickness = 30;
     for(int i=0; i<getTrack().size(); i++){
         Vertex lis[] =
         {
@@ -131,6 +145,7 @@ void Car::drawTrack(RenderWindow& window){
         RectangleShape line;
         line.setSize({20,5});
         line.setFillColor(Color::White);
+        if(finished)line.setFillColor(Color::Green);
         pair<int,int> start = getTrack()[0];
         expand(start);
         line.setPosition(start.first - line.getLocalBounds().width/2 + offset, start.second - line.getLocalBounds().height/2);
@@ -219,3 +234,14 @@ Car& CarManager::getCar(int index){
     return *cars[index];
 }
 
+void CarManager::onFinish(Car *c){
+    string name = RacerHandler::names[c->phoneid];
+    places.push_back(name);
+}
+
+bool CarManager::finished(){
+    for (Car* c : cars) {
+        if(!c->finished)return false;
+    }
+    return true;
+}
