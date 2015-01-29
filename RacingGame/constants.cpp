@@ -11,4 +11,4 @@
 const int Constants::acc_tolerance = 1700;
 const float Constants::car_acc = 4.0;
 const float Constants::off_time = 3.0;
-const int Constants::max_laps = 1;
+const int Constants::max_laps = 3;

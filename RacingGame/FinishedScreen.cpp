@@ -16,7 +16,7 @@ void FinishedScreen::show(sf::RenderWindow &window){
     string msg;
     for(int i=0; i<CarManager::places.size(); i++){
         msg += i+'0';
-        msg += "st: ";
+        msg += "th Place: ";
         msg += CarManager::places[i];
         msg += "\n";
     }
